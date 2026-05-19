@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Player::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(God::class)->constrained()->cascadeOnDelete();
+            $table->integer('tier')->default(1);
             $table->integer('level')->default(1);
             $table->integer('xp')->default(0);
             $table->integer('hp_current')->default(0);
