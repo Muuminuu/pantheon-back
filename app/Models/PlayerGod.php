@@ -12,6 +12,7 @@ class PlayerGod extends Model
     protected $fillable = [
         'player_id',
         'god_id',
+        'tier',
         'level',
         'xp',
         'hp_current',
@@ -21,6 +22,10 @@ class PlayerGod extends Model
     ];
 
     protected $casts = [
+        'tier' => 'integer',
+        'level' => 'integer',
+        'xp' => 'integer',
+        'hp_current' => 'integer',
         'is_at_base' => 'boolean',
         'acquired_at' => 'datetime'
     ];

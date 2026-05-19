@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('domain');
-            $table->enum('rarity', ['common', 'rare', 'legendary']);
+            $table->enum('archetype', ['dps', 'tank', 'support', 'hybrid']);
+            $table->json('stat_growth');
+            $table->json('passive_skill');
+            $table->json('active_skill');
             $table->integer('base_hp')->default(20);
             $table->integer('base_atk')->default(5);
             $table->integer('base_def')->default(5);
