@@ -17,9 +17,12 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        $this->call([
+            ResourceSeeder::class,  // doit passer avant PotionSeeder (FK potion_recipes)
+            GodSeeder::class,
+            PotionSeeder::class,    // crée potions + recettes en une passe
+            PlayerSeeder::class
         ]);
+
     }
 }
