@@ -32,7 +32,7 @@ class PlayerGod extends Model
 
     public function player(): BelongsTo
     {
-        return $this->belongsTo(God::class);
+        return $this->belongsTo(Player::class);
     }
 
     public function baseSlot(): HasMany

@@ -15,13 +15,14 @@ return new class extends Migration
     {
         Schema::create('player_gods', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Player::class)->cascadeOnDelete();
-            $table->foreignIdFor(God::class)->cascadeOnDelete();
+            $table->foreignIdFor(Player::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(God::class)->constrained()->cascadeOnDelete();
             $table->integer('level')->default(1);
             $table->integer('xp')->default(0);
             $table->integer('hp_current')->default(0);
             $table->enum('position', ['front', 'mid', 'back'])->nullable();
             $table->boolean('is_at_base')->default(true);
+            $table->datetime('acquired_at')->nullable();
             $table->timestamps();
         });
     }
